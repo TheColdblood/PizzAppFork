@@ -1,3 +1,3 @@
 # PizzAppFork
-## GUI: CsP
+## GUI: Simon Gergő
 Fork után a programozás közös feladat
