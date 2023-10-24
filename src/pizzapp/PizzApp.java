@@ -11,6 +11,9 @@ public class PizzApp extends javax.swing.JFrame {
     public PizzApp() {
         initComponents();
         
+        dbszamolas();
+        
+        
         alapAr = 1750;
         
         meretSzorzo = 1;
@@ -20,8 +23,8 @@ public class PizzApp extends javax.swing.JFrame {
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        extrak = extra1 + extra2 + extra3;
-                
+        extrak = extra1 + extra2 + extra3; 
+        
         szamolasEsKiiras();
     }
 
@@ -116,6 +119,11 @@ public class PizzApp extends javax.swing.JFrame {
         lblAr.setText("1750");
 
         numDb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        numDb.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numDbStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFizetendoLayout = new javax.swing.GroupLayout(pnlFizetendo);
         pnlFizetendo.setLayout(pnlFizetendoLayout);
@@ -275,8 +283,6 @@ public class PizzApp extends javax.swing.JFrame {
         szamolasEsKiiras();
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
-    
-
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
          meretSzorzo = .75;
          
@@ -288,7 +294,18 @@ public class PizzApp extends javax.swing.JFrame {
          
          szamolasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
+        szamolasEsKiiras();
+    }//GEN-LAST:event_numDbStateChanged
+    private void dbszamolas() {
+        String pizzaDb = numDb.getValue() + "";
+        db = Integer.parseInt(pizzaDb);
+    }
+    
     private void szamolasEsKiiras() {
+        String pizzaDb = numDb.getValue() + "";
+        db = Integer.parseInt(pizzaDb);
         vegsoAr = alapAr * meretSzorzo + extrak;
         vegsoAr *= db; // vegsoAr = vegsoAr * db;
         lblAr.setText(vegsoAr + "");
@@ -348,4 +365,5 @@ public class PizzApp extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbMeret32;
     private javax.swing.JTextArea txaOsszesito;
     // End of variables declaration//GEN-END:variables
+
 }
