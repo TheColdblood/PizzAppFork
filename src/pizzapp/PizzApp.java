@@ -3,22 +3,26 @@ package pizzapp;
 public class PizzApp extends javax.swing.JFrame {
     
     double meretSzorzo = 1;
-
+    int alapAr = -1; //-1 jeletés: nincs ára
+    int extrak;
+    int db;
+    double vegsoAr;
+    
     public PizzApp() {
         initComponents();
         
-        int alapAr2 = 1750;
+        alapAr = 1750;
         
         meretSzorzo = 1;
         
-        int db = 1;
+        db = 1;
         
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
+        extrak = extra1 + extra2 + extra3;
                 
-        double vegsoAr = alapAr2 * meretSzorzo + extrak;
+        vegsoAr = alapAr * meretSzorzo + extrak;
         vegsoAr *= db; // vegsoAr = vegsoAr * db;
         lblAr.setText(vegsoAr + "");
     }
@@ -250,8 +254,7 @@ public class PizzApp extends javax.swing.JFrame {
         //melyik a választott pizza indexe
         int pizzaIndex = cmdValaszthatoPizzak.getSelectedIndex();
         
-        // választott pizza indexe
-        int alapAr = -1; //-1 jeletés: nincs ára
+        // választott pizza index
         if(pizzaIndex == 0){
             alapAr = 1580;
         }else if(pizzaIndex == 1){
@@ -264,20 +267,24 @@ public class PizzApp extends javax.swing.JFrame {
         
        
         
-        int db = 1;
+        db = 1;
         
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
+        extrak = extra1 + extra2 + extra3;
                 
-        double vegsoAr = alapAr * meretSzorzo + extrak;
+        vegsoAr = alapAr * meretSzorzo + extrak;
         vegsoAr *= db; // vegsoAr = vegsoAr * db;
         lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
          meretSzorzo = .75;
+         
+        vegsoAr = alapAr * meretSzorzo + extrak;
+        vegsoAr *= db; // vegsoAr = vegsoAr * db;
+        lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
