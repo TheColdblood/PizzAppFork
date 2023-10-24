@@ -8,6 +8,10 @@ public class PizzApp extends javax.swing.JFrame {
     int db;
     double vegsoAr;
     
+    int extra1 = 0;
+    int extra2 = 0;
+    int extra3 = 0;
+    
     public PizzApp() {
         initComponents();
         
@@ -20,12 +24,9 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
-        extrak = extra1 + extra2 + extra3; 
         
-        szamolasEsKiiras();
+        
+        szamolasEsKiiras(db);
     }
 
     @SuppressWarnings("unchecked")
@@ -158,10 +159,25 @@ public class PizzApp extends javax.swing.JFrame {
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
         chbSajt.setText("sajt");
+        chbSajt.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chbSajtItemStateChanged(evt);
+            }
+        });
 
         chbHagyma.setText("hagyma");
+        chbHagyma.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chbHagymaItemStateChanged(evt);
+            }
+        });
 
         chbAnanasz.setText("ananász");
+        chbAnanasz.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                chbAnanaszItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlExtrakLayout = new javax.swing.GroupLayout(pnlExtrak);
         pnlExtrak.setLayout(pnlExtrakLayout);
@@ -274,36 +290,63 @@ public class PizzApp extends javax.swing.JFrame {
        
         
         db = 1;
-        
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
-        extrak = extra1 + extra2 + extra3;
                 
-        szamolasEsKiiras();
+        szamolasEsKiiras(db);
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
          meretSzorzo = .75;
          
-        szamolasEsKiiras();
+        szamolasEsKiiras(db);
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
          meretSzorzo = 1;
          
-         szamolasEsKiiras();
+         szamolasEsKiiras(db);
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
-        szamolasEsKiiras();
+        szamolasEsKiiras(db);
     }//GEN-LAST:event_numDbStateChanged
+
+    private void chbSajtItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbSajtItemStateChanged
+        if (chbSajt.isSelected()== true)
+            extra1 = 200;
+        else
+            extra1 = 0;
+            
+        extrakSzamolas();
+    }//GEN-LAST:event_chbSajtItemStateChanged
+
+    private void chbHagymaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbHagymaItemStateChanged
+       if (chbHagyma.isSelected()== true)
+            extra2 = 200;
+        else
+            extra2 = 0;
+            
+        extrakSzamolas();
+    }//GEN-LAST:event_chbHagymaItemStateChanged
+
+    private void chbAnanaszItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chbAnanaszItemStateChanged
+        if (chbAnanasz.isSelected()== true)
+            extra3 = 200;
+        else
+            extra3 = 0;
+            
+        extrakSzamolas();
+    }//GEN-LAST:event_chbAnanaszItemStateChanged
+    private void extrakSzamolas() {
+        extrak = extra1 + extra2 + extra3;
+        szamolasEsKiiras(db);
+    }
+    
     private void dbszamolas() {
         String pizzaDb = numDb.getValue() + "";
         db = Integer.parseInt(pizzaDb);
     }
     
-    private void szamolasEsKiiras() {
+    private void szamolasEsKiiras(int db1) {
         String pizzaDb = numDb.getValue() + "";
         db = Integer.parseInt(pizzaDb);
         vegsoAr = alapAr * meretSzorzo + extrak;
