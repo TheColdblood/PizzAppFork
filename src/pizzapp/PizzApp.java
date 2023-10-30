@@ -206,6 +206,11 @@ public class PizzApp extends javax.swing.JFrame {
 
         txaOsszesito.setColumns(20);
         txaOsszesito.setRows(5);
+        txaOsszesito.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txaOsszesitoPropertyChange(evt);
+            }
+        });
         jScrollPane1.setViewportView(txaOsszesito);
 
         btnRendel.setText("Megrendelem");
@@ -215,7 +220,7 @@ public class PizzApp extends javax.swing.JFrame {
             }
         });
 
-        lblOsszesito.setText("Összestő:");
+        lblOsszesito.setText("Összesítő:");
 
         lblKep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kepek/pizza.png"))); // NOI18N
 
@@ -299,6 +304,7 @@ public class PizzApp extends javax.swing.JFrame {
         db = 1;
                 
         szamolasEsKiiras(db);
+        
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
@@ -346,9 +352,16 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
         String uzenet;
+        
         uzenet = "Rendelés elküldve!";
+        
         JOptionPane.showMessageDialog(null, uzenet, "MEGRENDELVE", 1);
     }//GEN-LAST:event_btnRendelActionPerformed
+
+    private void txaOsszesitoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txaOsszesitoPropertyChange
+        
+    }//GEN-LAST:event_txaOsszesitoPropertyChange
+
     private void extrakSzamolas() {
         extrak = extra1 + extra2 + extra3;
         szamolasEsKiiras(db);
@@ -365,6 +378,8 @@ public class PizzApp extends javax.swing.JFrame {
         vegsoAr = alapAr * meretSzorzo + extrak;
         vegsoAr *= db; // vegsoAr = vegsoAr * db;
         lblAr.setText(vegsoAr + "");
+        
+        txaOsszesito.setText((String) cmdValaszthatoPizzak.getSelectedItem ());
     }
     
     public static void main(String args[]) {
