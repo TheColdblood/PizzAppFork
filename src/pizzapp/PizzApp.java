@@ -1,5 +1,7 @@
 package pizzapp;
 
+import javax.swing.JOptionPane;
+
 public class PizzApp extends javax.swing.JFrame {
     
     double meretSzorzo = 1;
@@ -207,6 +209,11 @@ public class PizzApp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaOsszesito);
 
         btnRendel.setText("Megrendelem");
+        btnRendel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRendelActionPerformed(evt);
+            }
+        });
 
         lblOsszesito.setText("Összestő:");
 
@@ -336,6 +343,12 @@ public class PizzApp extends javax.swing.JFrame {
             
         extrakSzamolas();
     }//GEN-LAST:event_chbAnanaszItemStateChanged
+
+    private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
+        String uzenet;
+        uzenet = "Rendelés elküldve!";
+        JOptionPane.showMessageDialog(null, uzenet, "MEGRENDELVE", 1);
+    }//GEN-LAST:event_btnRendelActionPerformed
     private void extrakSzamolas() {
         extrak = extra1 + extra2 + extra3;
         szamolasEsKiiras(db);
