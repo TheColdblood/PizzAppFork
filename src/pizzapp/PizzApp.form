@@ -85,11 +85,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="pnlFizetendo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnRendel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="124" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
           </Group>
@@ -234,7 +234,7 @@
         <Component class="javax.swing.JLabel" name="lblfizDb">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="db:"/>
+            <Property name="text" type="java.lang.String" value="Db:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblFizFt">
@@ -299,7 +299,7 @@
       <SubComponents>
         <Component class="javax.swing.JCheckBox" name="chbSajt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="sajt"/>
+            <Property name="text" type="java.lang.String" value="Sajt"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chbSajtItemStateChanged"/>
@@ -307,7 +307,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="chbHagyma">
           <Properties>
-            <Property name="text" type="java.lang.String" value="hagyma"/>
+            <Property name="text" type="java.lang.String" value="Hagyma"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chbHagymaItemStateChanged"/>
@@ -315,7 +315,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="chbAnanasz">
           <Properties>
-            <Property name="text" type="java.lang.String" value="anan&#xe1;sz"/>
+            <Property name="text" type="java.lang.String" value="Anan&#xe1;sz"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chbAnanaszItemStateChanged"/>

@@ -114,7 +114,7 @@ public class PizzApp extends javax.swing.JFrame {
         pnlFizetendo.setBorder(javax.swing.BorderFactory.createTitledBorder("Fizetendő"));
 
         lblfizDb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblfizDb.setText("db:");
+        lblfizDb.setText("Db:");
 
         lblFizFt.setText("Ft");
 
@@ -160,21 +160,21 @@ public class PizzApp extends javax.swing.JFrame {
 
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
-        chbSajt.setText("sajt");
+        chbSajt.setText("Sajt");
         chbSajt.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 chbSajtItemStateChanged(evt);
             }
         });
 
-        chbHagyma.setText("hagyma");
+        chbHagyma.setText("Hagyma");
         chbHagyma.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 chbHagymaItemStateChanged(evt);
             }
         });
 
-        chbAnanasz.setText("ananász");
+        chbAnanasz.setText("Ananász");
         chbAnanasz.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 chbAnanaszItemStateChanged(evt);
@@ -273,10 +273,10 @@ public class PizzApp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlFizetendo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRendel)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                 .addGap(6, 6, 6))
         );
 
